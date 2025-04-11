@@ -2,139 +2,296 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artisan Treasures - Handmade Crafts</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vivo Phones Store</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fdf6f0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
     }
-    header {
-      background-image: url('https://images.unsplash.com/photo-1533117003871-cbfe8b7dbb7f');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
+
+    /* NAVIGATION */
     nav {
+      background-color: #000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #6b4226;
-      padding: 10px 20px;
+      padding: 10px 30px;
       color: white;
     }
-    nav img {
-      height: 40px;
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00b0ff;
     }
-    nav input[type="text"] {
-      padding: 5px;
-      width: 200px;
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
     }
-    nav button {
-      padding: 6px 12px;
-      background: #e0c097;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+
+    nav ul li {
+      margin: 0 15px;
     }
-    .section {
-      padding: 40px 20px;
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      color: #00b0ff;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: url('https://fdn2.gsmarena.com/vv/pics/vivo/vivo-x100-pro-1.jpg') no-repeat center center/cover;
+      color: white;
       text-align: center;
+      padding: 100px 20px;
+      position: relative;
     }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    .product {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .product img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-    .product h3 {
-      margin: 10px 0;
-    }
-    .product button {
-      background: #d97742;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    video {
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
       width: 100%;
-      max-width: 600px;
-      border-radius: 15px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
     }
-    footer {
-      background: #6b4226;
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      background-color: #00b0ff;
       color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background-color: #0094d6;
+    }
+
+    /* SECTION TITLE */
+    .section-title {
       text-align: center;
+      font-size: 28px;
+      margin: 40px 0 20px;
+      color: #222;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      background-color: white;
+      margin: 15px;
+      width: 280px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .product-card h3 {
+      margin: 15px 0 5px;
+    }
+
+    .product-card p {
+      color: #666;
+      padding: 0 10px 10px;
+    }
+
+    .product-card button {
+      background-color: #00b0ff;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .product-card button:hover {
+      background-color: #0094d6;
+    }
+
+    /* OFFERS SECTION */
+    .offers {
+      background-color: #e0f7fa;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .offer-box {
+      width: 300px;
+      margin: 10px;
+      background-color: white;
       padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .offer-box img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .offer-box h4 {
+      margin: 10px 0 5px;
+    }
+
+    .offer-box p {
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .products, .offers {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
+
   <nav>
-    <img src="https://cdn-icons-png.flaticon.com/512/3081/3081986.png" alt="Logo">
-    <div>
-      <input type="text" placeholder="Search handmade...">
-      <button><i class="fas fa-search"></i></button>
-    </div>
+    <div class="logo">VivoStore</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Phones</a></li>
+      <li><a href="#offers">Offers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <header>
-    <h1>Welcome to Artisan Treasures</h1>
-    <p>Explore the world of unique, handmade crafts and home decor</p>
-    <button onclick="alert('Shop Now clicked')">Shop Now</button>
-  </header>
-
-  <section class="section">
-    <h2>Featured Video</h2>
-    <video controls>
-      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </section>
-
-  <section class="section">
-    <h2>Our Collections</h2>
-    <div class="products">
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef" alt="Craft 1">
-        <h3>Painted Vase</h3>
-        <p>$25.00</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1605283163715-3e89f9a3e9c7" alt="Craft 2">
-        <h3>Wall Art</h3>
-        <p>$45.00</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1564866657312-7790edc16de5" alt="Craft 3">
-        <h3>Handmade Basket</h3>
-        <p>$30.00</p>
-        <button>Add to Cart</button>
-      </div>
+  <div class="hero" id="home">
+    <div class="hero-content">
+      <h1>Experience Innovation</h1>
+      <p>Shop the latest Vivo phones now</p>
+      <button onclick="scrollToSection('products')">Shop Now</button>
     </div>
-  </section>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 Artisan Treasures | Designed with love for creativity</p>
+  <h2 class="section-title" id="products">Latest Vivo Phones</h2>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://fdn2.gsmarena.com/vv/pics/vivo/vivo-x100-pro-1.jpg" alt="Vivo X100 Pro">
+      <h3>Vivo X100 Pro</h3>
+      <p>12GB RAM, 512GB ROM, 200MP Camera</p>
+      <button onclick="buyNow('Vivo X100 Pro')">Buy Now</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://fdn2.gsmarena.com/vv/pics/vivo/vivo-v29e-2.jpg" alt="Vivo V29e">
+      <h3>Vivo V29e</h3>
+      <p>8GB RAM, 256GB ROM, 64MP Camera</p>
+      <button onclick="buyNow('Vivo V29e')">Buy Now</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://fdn2.gsmarena.com/vv/pics/vivo/vivo-v27-pro-1.jpg" alt="Vivo V27 Pro">
+      <h3>Vivo V27 Pro</h3>
+      <p>12GB RAM, 256GB ROM, 50MP Camera</p>
+      <button onclick="buyNow('Vivo V27 Pro')">Buy Now</button>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="offers">Special Offers</h2>
+  <div class="offers">
+    <div class="offer-box">
+      <img src="https://cdn1.smartprix.com/rx-iXybqRjmU-w1200-h1200/XybqRjmU.jpg" alt="Offer 1">
+      <h4>Up to ₹5000 Off</h4>
+      <p>On selected models this April!</p>
+    </div>
+
+    <div class="offer-box">
+      <img src="https://www.91-cdn.com/hub/wp-content/uploads/2023/07/Vivo-V29.jpg" alt="Offer 2">
+      <h4>0% EMI Available</h4>
+      <p>Finance options starting at just ₹999/month</p>
+    </div>
+
+    <div class="offer-box">
+      <img src="https://images.fonearena.com/blog/wp-content/uploads/2023/02/Vivo-V27-Series-1024x768.jpg" alt="Offer 3">
+      <h4>Free Screen Replacement</h4>
+      <p>For 6 months on V series purchases</p>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <p>Contact us: support@vivostore.com | +91 98765 43210</p>
+    <p>&copy; 2025 VivoStore. All rights reserved.</p>
   </footer>
+
+  <script>
+    function buyNow(productName) {
+      alert(`You selected to buy: ${productName}`);
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
